@@ -1,0 +1,5 @@
+-Q . SimpleNBE
+
+-arg -w -arg -notation-overridden
+
+Syntax.v

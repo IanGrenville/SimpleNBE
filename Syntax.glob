@@ -1,0 +1,215 @@
+DIGEST 0e1f31709158d2a653f1680e6608be88
+FSimpleNBE.Syntax
+R15:18 Coq.Lists.List <> <> lib
+R51:59 Equations.Prop.Equations <> <> lib
+ind 73:75 <> Typ
+constr 88:91 <> Bool
+constr 101:103 <> Arr
+R95:97 SimpleNBE.Syntax <> Typ:1 ind
+R110:113 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R107:109 SimpleNBE.Syntax <> Typ:1 ind
+R117:120 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R114:116 SimpleNBE.Syntax <> Typ:1 ind
+R121:123 SimpleNBE.Syntax <> Typ:1 ind
+abbrev 136:138 <> Ctx
+R144:147 Coq.Init.Datatypes <> list ind
+R149:151 SimpleNBE.Syntax <> Typ ind
+R178:180 SimpleNBE.Syntax <> Arr constr
+not 164:164 <> :::x_'-->'_x
+ind 213:215 <> Exp
+constr 228:230 <> var
+constr 247:250 <> true
+constr 260:264 <> false
+constr 274:276 <> lam
+constr 293:295 <> app
+constr 319:321 <> sub
+ind 350:354 <> Subst
+constr 367:368 <> wk
+constr 380:381 <> id
+constr 393:396 <> comp
+constr 426:428 <> ext
+R237:240 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R234:236 Coq.Init.Datatypes <> nat ind
+R241:243 SimpleNBE.Syntax <> Exp:3 ind
+R254:256 SimpleNBE.Syntax <> Exp:3 ind
+R268:270 SimpleNBE.Syntax <> Exp:3 ind
+R283:286 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R280:282 SimpleNBE.Syntax <> Exp:3 ind
+R287:289 SimpleNBE.Syntax <> Exp:3 ind
+R302:305 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R299:301 SimpleNBE.Syntax <> Exp:3 ind
+R309:312 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R306:308 SimpleNBE.Syntax <> Exp:3 ind
+R313:315 SimpleNBE.Syntax <> Exp:3 ind
+R328:331 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R325:327 SimpleNBE.Syntax <> Exp:3 ind
+R337:340 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R332:336 SimpleNBE.Syntax <> Subst:4 ind
+R341:343 SimpleNBE.Syntax <> Exp:3 ind
+R372:376 SimpleNBE.Syntax <> Subst:4 ind
+R385:389 SimpleNBE.Syntax <> Subst:4 ind
+R405:408 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R400:404 SimpleNBE.Syntax <> Subst:4 ind
+R414:417 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R409:413 SimpleNBE.Syntax <> Subst:4 ind
+R418:422 SimpleNBE.Syntax <> Subst:4 ind
+R437:440 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R432:436 SimpleNBE.Syntax <> Subst:4 ind
+R444:447 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R441:443 SimpleNBE.Syntax <> Exp:3 ind
+R448:452 SimpleNBE.Syntax <> Subst:4 ind
+R478:480 SimpleNBE.Syntax <> app constr
+not 466:466 <> :::x_'$'_x
+R526:528 SimpleNBE.Syntax <> sub constr
+not 511:511 <> :::x_'['_x_']'
+R576:579 SimpleNBE.Syntax <> comp constr
+not 560:560 <> :::x_'∙'_x
+R626:628 SimpleNBE.Syntax <> ext constr
+not 612:612 <> :::x_',,'_x
+R673:675 SimpleNBE.Syntax <> ext constr
+R678:681 SimpleNBE.Syntax <> comp constr
+R686:687 SimpleNBE.Syntax <> wk constr
+R691:693 SimpleNBE.Syntax <> var constr
+not 660:660 <> :::'q'_x
+ind 755:760 <> Weaken
+constr 787:787 <> I
+constr 809:809 <> P
+constr 854:854 <> Q
+R767:770 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R764:766 SimpleNBE.Syntax <> Ctx abbrev
+R774:777 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R771:773 SimpleNBE.Syntax <> Ctx abbrev
+R793:798 SimpleNBE.Syntax <> Weaken:7 ind
+R827:830 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R815:820 SimpleNBE.Syntax <> Weaken:7 ind
+R831:836 SimpleNBE.Syntax <> Weaken:7 ind
+R840:843 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R872:875 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R860:865 SimpleNBE.Syntax <> Weaken:7 ind
+R876:881 SimpleNBE.Syntax <> Weaken:7 ind
+R895:898 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R885:888 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+def 917:925 <> weak_comp
+R944:947 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R931:936 SimpleNBE.Syntax <> Weaken ind
+R961:964 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R948:953 SimpleNBE.Syntax <> Weaken ind
+R965:970 SimpleNBE.Syntax <> Weaken ind
+R984:992 SimpleNBE.Syntax <> weak_comp:21 def
+R1004:1004 SimpleNBE.Syntax <> I constr
+R1000:1001 SimpleNBE.Syntax <> σ:20 var
+R1004:1006 SimpleNBE.Syntax <> I constr
+R1018:1026 SimpleNBE.Syntax <> weak_comp:25 def
+R1038:1038 SimpleNBE.Syntax <> P constr
+R1044:1044 SimpleNBE.Syntax <> T:22 var
+R1046:1047 SimpleNBE.Syntax <> δ:23 var
+R1034:1035 SimpleNBE.Syntax <> σ:24 var
+R1038:1047 SimpleNBE.Syntax <> P constr
+R1088:1096 SimpleNBE.Syntax <> weak_comp:28 def
+R1111:1111 SimpleNBE.Syntax <> Q constr
+R1117:1117 SimpleNBE.Syntax <> T:26 var
+R1119:1120 SimpleNBE.Syntax <> δ:27 var
+R1105:1105 SimpleNBE.Syntax <> I constr
+R1105:1107 SimpleNBE.Syntax <> I constr
+R1111:1120 SimpleNBE.Syntax <> Q constr
+R1140:1148 SimpleNBE.Syntax <> weak_comp:32 def
+R1170:1170 SimpleNBE.Syntax <> Q constr
+R1176:1176 SimpleNBE.Syntax <> T:29 var
+R1178:1179 SimpleNBE.Syntax <> δ:30 var
+R1157:1157 SimpleNBE.Syntax <> P constr
+R1163:1163 SimpleNBE.Syntax <> T:29 var
+R1165:1166 SimpleNBE.Syntax <> σ:31 var
+R1157:1166 SimpleNBE.Syntax <> P constr
+R1170:1179 SimpleNBE.Syntax <> Q constr
+R1220:1228 SimpleNBE.Syntax <> weak_comp:36 def
+R1250:1250 SimpleNBE.Syntax <> Q constr
+R1256:1256 SimpleNBE.Syntax <> T:33 var
+R1258:1259 SimpleNBE.Syntax <> δ:34 var
+R1237:1237 SimpleNBE.Syntax <> Q constr
+R1243:1243 SimpleNBE.Syntax <> T:33 var
+R1245:1246 SimpleNBE.Syntax <> σ:35 var
+R1237:1246 SimpleNBE.Syntax <> Q constr
+R1250:1259 SimpleNBE.Syntax <> Q constr
+R1053:1053 SimpleNBE.Syntax <> P constr
+R1062:1070 SimpleNBE.Syntax <> weak_comp:19 def
+R1126:1126 SimpleNBE.Syntax <> Q constr
+R1185:1185 SimpleNBE.Syntax <> P constr
+R1194:1202 SimpleNBE.Syntax <> weak_comp:19 def
+R1265:1265 SimpleNBE.Syntax <> Q constr
+R1274:1282 SimpleNBE.Syntax <> weak_comp:19 def
+def 1313:1327 <> Weaken_to_Subst
+R1345:1348 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1333:1338 SimpleNBE.Syntax <> Weaken ind
+R1349:1353 SimpleNBE.Syntax <> Subst ind
+R1361:1375 SimpleNBE.Syntax <> Weaken_to_Subst:40 def
+R1383:1383 SimpleNBE.Syntax <> I constr
+R1383:1385 SimpleNBE.Syntax <> I constr
+R1397:1411 SimpleNBE.Syntax <> Weaken_to_Subst:43 def
+R1418:1418 SimpleNBE.Syntax <> P constr
+R1424:1424 SimpleNBE.Syntax <> T:41 var
+R1426:1427 SimpleNBE.Syntax <> σ:42 var
+R1418:1427 SimpleNBE.Syntax <> P constr
+R1468:1482 SimpleNBE.Syntax <> Weaken_to_Subst:46 def
+R1489:1489 SimpleNBE.Syntax <> Q constr
+R1495:1495 SimpleNBE.Syntax <> T:44 var
+R1497:1498 SimpleNBE.Syntax <> σ:45 var
+R1489:1498 SimpleNBE.Syntax <> Q constr
+R1391:1392 SimpleNBE.Syntax <> id constr
+R1433:1433 SimpleNBE.Syntax <> :::x_'∙'_x not
+R1456:1461 SimpleNBE.Syntax <> :::x_'∙'_x not
+R1434:1448 SimpleNBE.Syntax <> Weaken_to_Subst:39 def
+R1462:1463 SimpleNBE.Syntax <> wk constr
+R1504:1506 SimpleNBE.Syntax <> :::'q'_x not
+R1529:1529 SimpleNBE.Syntax <> :::'q'_x not
+R1507:1521 SimpleNBE.Syntax <> Weaken_to_Subst:39 def
+ind 2098:2099 <> Ne
+constr 2112:2117 <> ne_var
+constr 2133:2138 <> ne_app
+ind 2162:2163 <> Nf
+constr 2176:2180 <> nf_ne
+constr 2195:2201 <> nf_true
+constr 2210:2217 <> nf_false
+constr 2226:2231 <> nf_lam
+R2124:2127 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2121:2123 Coq.Init.Datatypes <> nat ind
+R2128:2129 SimpleNBE.Syntax <> Ne:47 ind
+R2144:2147 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2142:2143 SimpleNBE.Syntax <> Ne:47 ind
+R2150:2153 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2148:2149 SimpleNBE.Syntax <> Nf:48 ind
+R2154:2155 SimpleNBE.Syntax <> Ne:47 ind
+R2186:2189 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2184:2185 SimpleNBE.Syntax <> Ne:47 ind
+R2190:2191 SimpleNBE.Syntax <> Nf:48 ind
+R2205:2206 SimpleNBE.Syntax <> Nf:48 ind
+R2221:2222 SimpleNBE.Syntax <> Nf:48 ind
+R2237:2240 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2235:2236 SimpleNBE.Syntax <> Nf:48 ind
+R2241:2242 SimpleNBE.Syntax <> Nf:48 ind
+def 2255:2261 <> NeToExp
+def 2375:2381 <> NfToExp
+R2269:2270 SimpleNBE.Syntax <> Ne ind
+binder 2264:2265 <> ne:51
+R2389:2390 SimpleNBE.Syntax <> Nf ind
+binder 2384:2385 <> nf:52
+R2275:2277 SimpleNBE.Syntax <> Exp ind
+R2395:2397 SimpleNBE.Syntax <> Exp ind
+R2290:2291 SimpleNBE.Syntax <> ne:51 var
+R2302:2307 SimpleNBE.Syntax <> ne_var constr
+R2314:2316 SimpleNBE.Syntax <> var constr
+R2324:2329 SimpleNBE.Syntax <> ne_app constr
+R2338:2338 SimpleNBE.Syntax <> :::x_'$'_x not
+R2348:2352 SimpleNBE.Syntax <> :::x_'$'_x not
+R2362:2362 SimpleNBE.Syntax <> :::x_'$'_x not
+R2339:2345 SimpleNBE.Syntax <> NeToExp:53 def
+R2353:2359 SimpleNBE.Syntax <> NfToExp:54 def
+R2410:2411 SimpleNBE.Syntax <> nf:52 var
+R2422:2426 SimpleNBE.Syntax <> nf_ne constr
+R2434:2440 SimpleNBE.Syntax <> NeToExp:53 def
+R2449:2455 SimpleNBE.Syntax <> nf_true constr
+R2460:2463 SimpleNBE.Syntax <> true constr
+R2469:2476 SimpleNBE.Syntax <> nf_false constr
+R2481:2485 SimpleNBE.Syntax <> false constr
+R2491:2496 SimpleNBE.Syntax <> nf_lam constr
+R2503:2505 SimpleNBE.Syntax <> lam constr
+R2508:2514 SimpleNBE.Syntax <> NfToExp:54 def

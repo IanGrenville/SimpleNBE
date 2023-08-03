@@ -1,0 +1,56 @@
+Require Import List.
+From Equations Require Import Equations.
+
+Inductive Typ : Set :=
+| Bool : Typ
+| Arr : Typ -> Typ -> Typ.
+
+Notation Ctx := (list Typ).
+Notation "A --> B" := (Arr A B) (at level 80).
+
+Inductive Exp : Set :=
+| var : nat -> Exp
+| true : Exp
+| false : Exp
+| lam : Exp -> Exp
+| app : Exp -> Exp -> Exp
+| sub : Exp -> Subst -> Exp
+with Subst : Set :=
+| wk : Subst
+| id : Subst
+| comp : Subst -> Subst -> Subst
+| ext : Subst -> Exp -> Subst
+.
+
+Notation "A $ B" := (app A B) (at level 80).
+Notation "A [ σ ]" := (sub A σ) (at level 80).
+Notation "σ ∙ τ" := (comp σ τ) (at level 80).
+Notation "σ ,, s" := (ext σ s) (at level 80).
+Notation "'q' σ" := (ext (comp σ wk) (var 0)) (at level 80).
+
+Generalizable All Variables.
+
+Inductive Weaken : Ctx -> Ctx -> Set :=
+| I : `(Weaken Γ Γ)
+| P : `(Weaken Γ Δ -> Weaken (T :: Γ) Δ)
+| Q : `(Weaken Γ Δ -> Weaken (T :: Γ) (T :: Δ))
+.
+
+Equations weak_comp : `(Weaken Γ' Δ -> Weaken Γ Γ' -> Weaken Γ Δ) :=
+  weak_comp _ _ _ σ (I _) := σ;
+  weak_comp _ _ _ σ (P _ _ T δ) := P _ _ T (weak_comp _ _ _ σ δ);
+  weak_comp _ _ _ (I _) (Q _ _ T δ) := Q _ _ T δ;
+  weak_comp _ _ _ (P _ _ T σ) (Q _ _ T δ) := P _ _ T (weak_comp _ _ _ σ δ);
+  weak_comp _ _ _ (Q _ _ T σ) (Q _ _ T δ) := Q _ _ T (weak_comp _ _ _ σ δ);
+.
+  
+Equations Weaken_to_Subst : `(Weaken Γ Δ -> Subst) :=
+  Weaken_to_Subst  _ _ (I _) := id;
+  Weaken_to_Subst _ _ (P _ _ T σ) := (Weaken_to_Subst _ _ σ) ∙ wk;
+  Weaken_to_Subst _ _ (Q _ _ T σ) := q (Weaken_to_Subst _ _ σ)
+.
+
+
+                             
+
+                        
