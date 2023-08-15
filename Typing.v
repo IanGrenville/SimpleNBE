@@ -9,18 +9,18 @@ Reserved Notation "Γ ⊢ A ≈ B : T" (at level 80, A at next level, B at next 
 Reserved Notation "Γ ⊢ t : T" (no associativity, at level 80, t at next level).
 Reserved Notation "Γ ⊢s σ : Δ" (no associativity, at level 80, σ at next level).
 Reserved Notation "Γ ⊢s S1 ≈ S2 : Δ" (no associativity, at level 80, S1 at next level, S2 at next level).
-Reserved Notation "x : T ∈! Γ" (no associativity, at level 80, T at next level).
+Reserved Notation "x |: T ∈! Γ" (no associativity, at level 80, T at next level).
 
 Inductive ctx_lookup : nat -> Typ -> Ctx -> Prop :=
-  | here : `( 0 : T ∈! (T :: Γ))
-  | there : `( n : T ∈! Γ -> (S n) : T ∈! (T :: Γ))              
-where "x : T ∈! Γ" := (ctx_lookup x T Γ).
+  | here : `( 0 |: T ∈! (T :: Γ))
+  | there : `( n |: T ∈! Γ -> (S n) |: T ∈! (M :: Γ))              
+where "x |: T ∈! Γ" := (ctx_lookup x T Γ).
 
 
 
 Inductive wf_term : Ctx -> Exp -> Typ -> Prop :=
 | vlookup : `(
-                x : T ∈! Γ ->  
+                x |: T ∈! Γ ->  
                 Γ ⊢ var x : T)
 | true_intro : `(Γ ⊢ true : Bool)
 | false_intro : `(Γ ⊢ false : Bool)
@@ -52,7 +52,7 @@ where "Γ ⊢s σ : Δ" := (wf_sub Γ σ Δ).
 
 Inductive wf_term_eq : Ctx -> Exp -> Exp -> Typ -> Prop :=
 | var_eq : `(
-               x : T ∈! Γ ->
+               x |: T ∈! Γ ->
                Γ ⊢ var x ≈ var x : T)    
 | true_eq : `(Γ ⊢ true ≈ true : Bool)
 | false_eq : `(Γ ⊢ false ≈ false : Bool)
@@ -66,21 +66,21 @@ Inductive wf_term_eq : Ctx -> Exp -> Exp -> Typ -> Prop :=
                  Γ ⊢s σ ≈ σ' : Δ ->
                  Δ ⊢ t ≈ t' : T ->
                  Γ ⊢ (t [ σ ]) ≈ (t' [ σ' ]) : T)             
-| true_sub : `(Γ ⊢ true [ σ ] ≈ true : Bool) 
-| false_sub : `(Γ ⊢ false [ σ ] ≈ false : Bool)
+| true_sub : `(Γ ⊢s σ : Δ -> Γ ⊢ true [ σ ] ≈ true : Bool) 
+| false_sub : `(Γ ⊢s σ : Δ -> Γ ⊢ false [ σ ] ≈ false : Bool)
 | app_sub : `(Γ ⊢s σ : Δ →
                  Δ ⊢ r : (M --> T) →
                  Δ ⊢ m : M →
                  Γ ⊢ (r $ m) [ σ ] ≈ ((r [ σ ]) $ (m [ σ ])) : T)
 | lam_beta : `(M :: Γ ⊢ t : T →
                  Γ ⊢ m : M →
-                 Γ ⊢ Λ t $ m ≈ (t [ id ,, m ]) : T)
+                 Γ ⊢ lam t $ m ≈ (t [ id ,, m ]) : T)
 | lam_eta : `(Γ ⊢ t : (M --> T) →
-              Γ ⊢ t ≈ Λ (t [ wk ] $ var 0) : (M --> T))
+              Γ ⊢ t ≈ lam (t [ wk ] $ var 0) : (M --> T))
 | sub_id : `(Γ ⊢ t : T →
              Γ ⊢ t [ id ] ≈ t : T)
-| wk_lookup : `(x : T ∈! Γ →
-                M :: Γ ⊢ var x [ wk ] ≈ var (suc x) : T)
+| wk_lookup : `(x |: T ∈! Γ →
+                M :: Γ ⊢ var x [ wk ] ≈ var (S x) : T)
 | sub_comp : `(Γ ⊢s τ : Γ' →
                  Γ' ⊢s σ : Γ'' →
                  Γ'' ⊢ t : T →
@@ -90,8 +90,8 @@ Inductive wf_term_eq : Ctx -> Exp -> Exp -> Typ -> Prop :=
                  Γ ⊢ var 0 [ σ ,, m ] ≈ m : M)
 | ext_var_s : `(Γ ⊢s σ : Δ →
                  Γ ⊢ m : M →
-                 x : T ∈! Δ →
-                 Γ ⊢ var (suc x) [ σ ,, m ] ≈ (var x [ σ ]) : T)
+                 x |: T ∈! Δ →
+                 Γ ⊢ var (S x) [ σ ,, m ] ≈ (var x [ σ ]) : T)
 | sym : `(Γ ⊢ t ≈ t' : T -> Γ ⊢ t' ≈ t : T)
 | trans : `(Γ ⊢ t ≈ t' : T →
                  Γ ⊢ t' ≈ t'' : T →

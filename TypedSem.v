@@ -16,6 +16,7 @@ with Df : Set :=
 | df_down : Typ -> D -> Df
 .
 
+
 Notation Env := (nat -> D).
 
 Equations extend : Env -> D -> Env :=
@@ -38,12 +39,12 @@ Reserved Notation "⟦ A ⟧s B ↘ C" (at level 80, B at next level, C at next 
 
 Generalizable All Variables.                  
 
-Inductive app_eval : D -> D -> D -> Set :=
+Inductive app_eval : D -> D -> D -> Prop :=
 | app_lam : `(⟦ t ⟧ (p ↦ a) ↘ b ->
               (d_lam t p) ∘ a ↘ b)
 | app_app : `(d_up (M --> T) e ∘ a ↘ d_up T (dn_app e (df_down M a)))
 where "A ∘ B ↘ C" := (app_eval A B C)
-with tm_eval : Exp -> Env -> D -> Set :=
+with tm_eval : Exp -> Env -> D -> Prop :=
 | eval_var : `(⟦ var n ⟧ p ↘ p n)
 | eval_true : `(⟦ true ⟧ p ↘ d_true)
 | eval_false : `(⟦ false ⟧ p ↘ d_false)
@@ -56,7 +57,7 @@ with tm_eval : Exp -> Env -> D -> Set :=
                ⟦ t ⟧ p' ↘ a ->
                ⟦ t [ σ ] ⟧ p ↘ a)
 where "⟦ A ⟧ B ↘ C" := (tm_eval A B C)
-with sub_eval : Subst -> Env -> Env -> Set :=
+with sub_eval : Subst -> Env -> Env -> Prop :=
 | eval_wk : `(⟦ wk ⟧s p ↘ drop p)
 | eval_id : `(⟦ id ⟧s p ↘ p)
 | eval_comp : `(⟦ τ ⟧s p ↘ p' ->
@@ -138,7 +139,7 @@ Proof.
        reflexivity.   
 Qed.
 
-Record NBE (n : nat) (p : Env) (t : Exp) (T : Typ) (w : Nf) : Set := mk_nbe
+Record NBE (n : nat) (p : Env) (t : Exp) (T : Typ) (w : Nf) : Prop := mk_nbe
 {
   val_t : D ;
   eval_t : ⟦ t ⟧ p ↘ val_t ;
@@ -150,3 +151,8 @@ Equations InitialEnv : Ctx -> Env :=
   InitialEnv (T :: Γ) (S i) := InitialEnv Γ i;
 .
                                
+#[export]
+  Hint Constructors app_eval tm_eval sub_eval rf_eval re_eval: snbe.
+
+#[export]
+Hint Resolve ap_det tm_det sub_det re_det rf_det : snbe. 

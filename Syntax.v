@@ -1,6 +1,8 @@
 Require Import List.
 From Equations Require Import Equations.
 
+Create HintDb snbe.
+
 Inductive Typ : Set :=
 | Bool : Typ
 | Arr : Typ -> Typ -> Typ.
@@ -21,6 +23,8 @@ with Subst : Set :=
 | comp : Subst -> Subst -> Subst
 | ext : Subst -> Exp -> Subst
 .
+#[export]
+Hint Constructors Typ Exp : snbe.
 
 Notation "A $ B" := (app A B) (at level 80).
 Notation "A [ σ ]" := (sub A σ) (at level 80).
@@ -50,33 +54,6 @@ Equations Weaken_to_Subst : `(Weaken Γ Δ -> Subst) :=
   Weaken_to_Subst _ _ (Q _ _ T σ) := q (Weaken_to_Subst _ _ σ)
 .
 
-(* data Ne : Set where
-      v   : (x : ℕ) → Ne
-      _$_ : Ne → (n : Nf) → Ne
-
-    data Nf : Set where
-      ne  : (u : Ne) → Nf
-      tru : Nf
-      fls : Nf
-      Λ   : Nf → Nf
-
-  pattern v′ x = ne (v x)
-
-  variable
-    u u′ u″ : Ne
-    w w′ w″ : Nf
-
-  mutual
-    Ne⇒Exp : Ne → Exp
-    Ne⇒Exp (v x)         = v x
-    Ne⇒Exp (u $ n)       = Ne⇒Exp u $ Nf⇒Exp n
-
-    Nf⇒Exp : Nf → Exp
-    Nf⇒Exp (ne u) = Ne⇒Exp u
-    Nf⇒Exp tru    = tru
-    Nf⇒Exp fls    = fls
-    Nf⇒Exp (Λ w)  = Λ (Nf⇒Exp w)
- *)
 
 Inductive Ne : Set :=
 | ne_var : nat -> Ne

@@ -3,3 +3,6 @@
 -arg -w -arg -notation-overridden
 
 Syntax.v
+Typing.v
+TypedSem.v
+PER.v
