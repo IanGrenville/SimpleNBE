@@ -65,7 +65,7 @@ with sub_eval : Subst -> Env -> Env -> Prop :=
                 ⟦ (σ ∙ τ) ⟧s p ↘ p'')
 | eval_ext : `( ⟦ σ ⟧s p ↘ p' ->
                 ⟦ t ⟧ p ↘ a ->
-                ⟦ σ ,, t ⟧s p ↘ (p ↦ a))
+                ⟦ σ ,, t ⟧s p ↘ (p' ↦ a))
 where "⟦ A ⟧s B ↘ C" := (sub_eval A B C)  
 .
 
@@ -96,6 +96,7 @@ Proof.
        exact (sub_det _ _ _ _ H0 H5).
     -- inversion H6;subst.
        rewrite (tm_det _ _ _ _ H0 H5).
+       rewrite (sub_det _ _ _ _ H H4).
        reflexivity.
 Qed.
 

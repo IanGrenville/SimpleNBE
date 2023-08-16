@@ -157,14 +157,15 @@ Lemma sem_ext_var_s : `(Γ ⊨s σ : Δ ->
                  Γ ⊨ m : M ->
                  x |: T ∈! Δ ->
                  Γ ⊨ var (S x) [ σ ,, m ] ≈ (var x [ σ ]) : T).
-Proof.
+Proof.  
   simpl.
   intros.
   destruct (H _ _ H2).
   destruct (H0 _ _ H2).
   econstructor;eauto with snbe.
   simp extend.
-Admitted.
+  eauto with snbe.
+Qed.
 
 Lemma sem_app_sub : `(Γ ⊨s σ : Δ ->
                       Δ ⊨ r : (M --> T) ->
@@ -214,13 +215,8 @@ Proof.
   intros.
   destruct (H _ _ H1).
   destruct (H0 _ _ H1).
-  econstructor.
-  1-2: eauto with snbe.
-  intro;intros.
-  inversion H2;subst.
-  1-2: simp extend.
-  
-Admitted. 
+  econstructor;eauto with snbe.
+Qed.
 
 Lemma sem_sub_eq_wk_ext : `( Γ ⊨s σ : Δ ->
                   Γ ⊨ m : M ->
@@ -231,16 +227,8 @@ Proof.
   destruct (H _ _ H1).
   destruct (H0 _ _ H1).
   econstructor;eauto with snbe.
-  intro;intros.
-  simp drop.
-  simp extend.
-  eapply interp_sym.
-  eapply interp_trans.
-  eapply interp_sym.
-  exact (equiv_Γ x _ H2).
-  induction eval_σ.
-  
-Admitted.
+Qed.
+
 Lemma sem_sub_eq_id_comp_l : `(Γ ⊨s σ : Δ ->
                   Γ ⊨s id ∙ σ ≈ σ : Δ).
 Proof.
@@ -281,9 +269,8 @@ Proof.
   econstructor;eauto with snbe.
   intro;intros.
   inversion H1;subst.
-  1-2: simp extend.
-  eapply (equiv_Γ _ _ H1).
-Admitted.
+  1-2: simp extend drop;eauto with snbe.
+Qed.
 
 Lemma sem_true_sub_eq : `(Γ ⊨s σ : Δ ->
                           Γ ⊨ true [ σ ] ≈ true : Bool).

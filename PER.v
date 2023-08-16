@@ -44,16 +44,7 @@ Record app_equivalence (f f' : D) (e e' : Dn) (M T : Typ) : Prop := mk_app_equiv
   eval_f'e' : f' ∘ (d_up M e') ↘ f'e' ;
   fe_top_f'e' : Top (df_down T fe) (df_down T f'e') ;
 }.
-(*
-Record app_equivalence_of_T (f f' a a' : D) (T : Ty) : Prop := mk_app_equiv_T
-{
-  fa : D ;
-  f'a' : D ;
-  eval_fa : f ∘ a ↘ fa ;
-  eval_f'a' : f' ∘ a' ↘ f'a' ;
-  fa_T_f'a' : (T fa f'a') ;
-}.
-*)
+
 Inductive app_equivalence_of_T' (f f' a a' : D) (T : Ty) : Prop :=
 | app_eq_t
     (fa f'a': D)
