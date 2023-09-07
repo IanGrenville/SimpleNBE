@@ -68,6 +68,9 @@ Inductive wf_term_eq : Ctx -> Exp -> Exp -> Typ -> Prop :=
                  Γ ⊢ (t [ σ ]) ≈ (t' [ σ' ]) : T)             
 | true_sub : `(Γ ⊢s σ : Δ -> Γ ⊢ true [ σ ] ≈ true : Bool) 
 | false_sub : `(Γ ⊢s σ : Δ -> Γ ⊢ false [ σ ] ≈ false : Bool)
+| lam_sub : `(Γ ⊢s σ : Δ ->
+              M :: Δ ⊢ t : T ->
+              Γ ⊢ lam t [ σ ] ≈ lam (t [ q σ ]) : (M --> T))                     
 | app_sub : `(Γ ⊢s σ : Δ →
                  Δ ⊢ r : (M --> T) →
                  Δ ⊢ m : M →
